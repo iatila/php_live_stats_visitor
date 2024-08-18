@@ -1,0 +1,5 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^stats\.js$ live_stats.php [NC]
+RewriteCond %{HTTPS} !on
+RewriteRule ^/(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
