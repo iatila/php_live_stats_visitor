@@ -1,6 +1,6 @@
 # Online Ziyaretçi Takip Sistemi
 
-Bu proje, PHP ile geliştirilmiş basit bir online ziyaretçi takip sistemidir. Web sitenizin ziyaretçilerini gerçek zamanlı olarak takip eder ve verileri bir veritabanında saklar.
+Bu proje, PHP ile geliştirilmiş basit bir online ziyaretçi takip sistemidir. Web sitenizin ziyaretçilerini gerçek zamanlı olarak takip eder ve verileri bir veritabanında saklar.  `PHP 7` ve üzeri sürümlerde çalışır. 
 
 ## Özellikler
 
