@@ -1,3 +1,6 @@
+# Demo Video
+[![Demo video](https://i3.ytimg.com/vi/j_F4_gFGRfA/maxresdefault.jpg)](https://youtu.be/j_F4_gFGRfA)
+
 # Online Ziyaretçi Takip Sistemi
 
 Bu proje, PHP ile geliştirilmiş basit bir online ziyaretçi takip sistemidir. Web sitenizin ziyaretçilerini gerçek zamanlı olarak takip eder ve verileri bir veritabanında saklar.  `PHP 7` ve üzeri sürümlerde çalışır. 
