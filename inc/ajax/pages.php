@@ -8,27 +8,6 @@ $pages = $db->fetchStats(
     ['interval' => $cnf['time_db']]
 );
 
-function maskStringWithEnds($input) {
-    // Dizgenin uzunluğunu al
-    $length = strlen($input);
-
-    // Eğer dizgenin uzunluğu 6'dan küçükse, orijinal dizgeyi döndür
-    if ($length <= 6) {
-        return $input;
-    }
-
-    // İlk 3 karakteri al
-    $firstThree = substr($input, 0, 3);
-
-    // Son 3 karakteri al
-    $lastThree = substr($input, -3);
-
-    // Kalan karakterlerin sayısını hesapla ve onları yıldızlarla gizle
-    $maskedPart = str_repeat('*', $length - 6);
-
-    // İlk 3 karakteri, gizlenmiş kısmı ve son 3 karakteri birleştir
-    return $firstThree . $maskedPart . $lastThree;
-}
 $json = [];
 if ($pages) {
     $sum = array_sum(array_column($pages, 'total'));
@@ -81,7 +60,7 @@ if ($tables){
         $json['tables'][] = [
                 1 => '<i class="fa-solid fa-clock"></i> ' . date('H:i:s', strtotime('-3 minutes', strtotime($row['lv_date']))),
                 2 => '<i class="text-info fa-solid fa-globe"></i> ' . str_replace('http://', '', $row['lv_page']),
-                3 => '<i class="fa-solid fa-map-marker"></i> ' . ipDetail(maskStringWithEnds($row['lv_ip'])),
+                3 => '<i class="fa-solid fa-map-marker"></i> ' . ipDetail($row['lv_ip']),
                 4 => '<span  title="' . ($Osplatforms[$row['lv_platform']]['name'] ?? 'Unknown') . '" class="bw-icon os-icon-' . $plIcon . '"></span>',
                 5 => '<span  title="' . ($devices[$row['lv_browser']]['name'] ?? 'Unknown') . '" class="bw-icon bw-icon-' . $row['lv_browser'] . '"></span>',
                 6 => CountryFlag($row['lv_country'],$countlist)
