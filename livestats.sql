@@ -50,19 +50,6 @@ IF ( SELECT COUNT(lv_id) FROM live_stats WHERE lv_agent = xagent  AND NOW() < DA
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_onlineUsers` (IN `userid` INT, IN `page` VARCHAR(20) CHARSET utf8, IN `platform` TINYINT(2))  NO SQL BEGIN 
-
-IF userid > 1 THEN 
-
-UPDATE online_user SET 
-online_platform = platform,
-online_last_time = DATE_ADD(NOW(), INTERVAL 10 MINUTE), 
-online_where = page 
-WHERE online_user_id = userid; 
-
-END IF; 
-
-END$$
 
 DELIMITER ;
 
